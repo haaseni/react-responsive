@@ -1,0 +1,108 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "nav nav nav"
+        "header header header"
+        "photo photo photo"
+        "intro intro intro"
+        "body body body"
+        "adpod1 adpod1 adpod1"
+        "adpod2 adpod2 adpod2"
+        "relatedlinks relatedlinks relatedlinks"
+        "footer footer footer";
+    justify-content: space-between;
+}
+
+nav {
+    grid-area: nav;
+
+    .full-menu {
+        display: none;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        li {
+            border: 1px #000 solid;
+            list-style: none;
+
+            a {
+                padding: 10px;
+            }
+        }
+    }
+
+    .hamburger-icon {
+        display: block;
+    }
+}
+
+header {
+    grid-area: header;
+}
+
+.photo {
+    grid-area: photo;
+}
+
+.intro {
+    grid-area: intro;
+}
+
+.body {
+    grid-area: body;
+}
+
+%adpod {
+    border: 1px #000 solid;
+    align-self: center;
+    justify-self: center;
+}
+
+.adpod1 {
+    @extend %adpod;
+    grid-area: adpod1;
+}
+
+.adpod2 {
+    @extend %adpod;
+    grid-area: adpod2;
+}
+
+.related-links {
+    grid-area: relatedlinks;
+    border: 1px #000 solid;
+    min-width: 200px;
+    padding: 0 10px 0 10px;
+    align-self: top;
+    justify-self: center;
+
+    ul {
+        padding: 0;
+        margin: 0 0 10px 0;
+
+        li {
+            list-style: none;
+        }
+    }
+}
+
+footer {
+    grid-area: footer;
+}
